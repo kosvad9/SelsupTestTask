@@ -99,7 +99,7 @@ public class CrptApi {
             while (true){
                 try {
                     sleep(interval);
-                    semaphore.release(requestLimit);
+                    semaphore.release(requestLimit-semaphore.availablePermits());
                 } catch (InterruptedException e) {
                     return;
                 }
